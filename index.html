@@ -23,6 +23,12 @@ body:has(#loginPanel:not(.hidden))>header{display:none}
 #appPanel>section{grid-column:2;grid-row:2;min-width:0}
 @media(max-width:700px){#appPanel{grid-template-columns:130px minmax(0,1fr);gap:8px}#appPanel>nav button{font-size:13px;padding:11px 8px}#appPanel>.account-bar{gap:8px;font-size:12px}}
 @media(max-width:440px){#appPanel{grid-template-columns:105px minmax(0,1fr)}#appPanel>nav button{font-size:12px}#appPanel>section .panel{padding:10px}}
+/* 帳號列與右側主內容同寬；選單無底色 */
+#appPanel>.account-bar{grid-column:2;grid-row:1;width:100%;box-sizing:border-box;margin:0 0 12px 0;min-width:0}
+#appPanel>nav{grid-column:1;grid-row:2;background:transparent!important;box-shadow:none!important;border:0!important;padding:0}
+#appPanel>nav button{background:transparent!important;color:#1d405a!important;border:0!important;box-shadow:none!important;border-radius:6px;text-align:left;font-weight:600}
+#appPanel>nav button:hover,#appPanel>nav button:focus-visible{background:#e4ebf1!important}
+@media(max-width:700px){#appPanel>.account-bar{grid-column:2}}
 </style></head><body><header><h1>智哥通運｜管理系統</h1><small>獨立網站・Supabase 雲端同步</small></header><main>
 <div class="panel" id="loginPanel"><div class="login-brand"><div class="logo-mark">智</div><h1>智哥通運</h1><p>管理系統</p></div><div class="fields"><label for="loginEmail">Email<input id="loginEmail" type="email" placeholder="請輸入 Email" autocomplete="username"></label><label for="loginPassword">密碼<input id="loginPassword" type="password" placeholder="請輸入密碼" autocomplete="current-password" onkeydown="if(event.key==='Enter') login()"></label></div><button onclick="login()">登入系統</button><p id="loginMsg" class="muted" role="alert"></p></div>
 <div id="appPanel" class="hidden"><div class="panel account-bar"><span id="accountName"></span><button class="secondary" onclick="logout()">登出</button></div>
